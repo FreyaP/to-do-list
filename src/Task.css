@@ -1,0 +1,38 @@
+.todo-list {
+  padding: 10px 5px;
+  width: 400px;
+  background-color: #f2f2f2;
+}
+
+.todo {
+  background: #fff;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  padding: 3px 10px;
+  font-size: 0.7em;
+  margin: 6px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #000;
+}
+
+.todo-text {
+  cursor: pointer;
+}
+
+.todo-completed {
+  text-decoration: line-through;
+}
+
+button {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.todo button {
+  color: #ef8b5d;
+  background: transparent;
+}
