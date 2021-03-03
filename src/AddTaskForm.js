@@ -24,7 +24,7 @@ export default function AddTaskForm({ addTask }) {
     return (
         <form onSubmit={handleSubmit}>
             <input className="text-input" type="text" value={value} placeholder="Enter a new task..." onChange={e => setValue(e.target.value)}/>
-            <input type='date' value={dueDate} onChange={e => setDueDate(e.target.value)}/>
+            <input className="date" type='date' value={dueDate} onChange={e => setDueDate(e.target.value)}/>
             <button type="submit" ><FontAwesomeIcon icon={faPlus} /></button>
         </form>
     )
