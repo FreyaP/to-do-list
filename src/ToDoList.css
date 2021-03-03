@@ -11,9 +11,10 @@
   font-size: 0.7em;
   margin: 6px;
   border-radius: 3px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 3fr 2fr 1fr;
   align-items: center;
-  justify-content: space-between;
+  justify-items: start;
   color: #000;
 }
 h2 {
@@ -41,9 +42,13 @@ button {
   outline: 0;
   cursor: pointer;
   font-size: 18px;
+  justify-self: end;
 }
 
 .todo button {
   color: #ef8b5d;
   background: transparent;
+}
+.due-date {
+  font-size: 16px;
 }

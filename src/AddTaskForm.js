@@ -11,25 +11,14 @@ import FormatDate from './FormatDate';
 
 
 export default function AddTaskForm({ addTask }) {
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState("");   
+    const [dueDate, setDueDate] = useState(FormatDate);
     
-    let year = new Date().getFullYear();
-    let day = new Date().getDate();
-    if (day < 10) {
-        day = `0${day}`
-    } 
-    let month = new Date().getMonth();
-    if (month < 10) {
-        month = `0${month}`
-    }
-    let today = `${year}-${month}-${day}`;
-   
-    const [dueDate, setDueDate] = useState(today);
     const handleSubmit = e => {
         e.preventDefault();
         value && addTask(value, dueDate)
         setValue('');
-        setDueDate(today);
+        setDueDate(FormatDate);
     };
 
     return (

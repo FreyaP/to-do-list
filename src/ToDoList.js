@@ -6,17 +6,17 @@ import AddTaskForm from './AddTaskForm';
 
 export default function ToDoList() {
     const [tasks, setTasks] = useState([{
-        text: 'Walk the Dog',
+        text: 'This is an example task',
         isCompleted: false,
-        dueDate: "03/02/2021"
+        dueDate: "This is your due date"
     },{
-        text: 'Buy groceries',
+        text: 'Another Example',
         isCompleted: false,
-        dueDate: ""
+        dueDate: "Due Date"
     }, {
-        text: 'Water the Plants',
+        text: 'Last example',
         isCompleted: false,
-        dueDate: ""
+        dueDate: "Due date today by default"
     }]);
 
     const addTask = (text, dueDate) => { 
