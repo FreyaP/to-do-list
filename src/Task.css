@@ -2,6 +2,13 @@
   display: grid;
   grid-template-columns: 3fr 2fr min-content min-content;
 }
+.new-name {
+  font-size: 20px;
+}
+.new-date {
+  font-size: 18px;
+  color: #3f3d56;
+}
 .cancel {
   color: red;
 }

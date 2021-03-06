@@ -28,7 +28,7 @@ setEditing(true);
 const editing = (
     <form className='editing' onSubmit={handleSubmit}>
         <input className='new-name' type='text' value={newText} placeholder="Enter new name" onChange={e => setNewText(e.target.value)}/>
-        <input className="newDate" type='date' value={newDate} onChange={e => setNewDate(e.target.value)}/>
+        <input className="new-date" type='date' value={newDate} onChange={e => setNewDate(e.target.value)}/>
         <button className='update' type="submit"><FontAwesomeIcon icon={faCheck}/></button>
         <button className='cancel' onClick={handleCancel}><FontAwesomeIcon icon={faTimes}/></button>
     </form>
