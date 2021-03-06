@@ -1,61 +1,77 @@
 import { useState } from 'react';
 import './ToDoList.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import AddTaskForm from './AddTaskForm';
+import FormatDate from './FormatDate';
+import DueToday from './DueToday';
+import Task from './Task';
+
 
 export default function ToDoList() {
     const [tasks, setTasks] = useState([{
-        text: 'This is an example task',
+      id:  1,  
+      text: 'Walk the Dog',
         isCompleted: false,
-        dueDate: "This is your due date"
+        dueDate: '2021-02-11'
     },{
-        text: 'Another Example',
+      id: 2,  
+      text: 'To-Do List Project',
         isCompleted: false,
-        dueDate: "Due Date"
+        dueDate: FormatDate()
     }, {
-        text: 'Last example',
+      id: 3,
+        text: 'Add more tasks!',
         isCompleted: false,
-        dueDate: "Due date today by default"
+        dueDate: FormatDate()
     }]);
 
     const addTask = (text, dueDate) => { 
-        console.log(`I'm going to add ${text} here on this ${dueDate}! `)
          var addedTaskList = [...tasks, {
+        id: tasks.length + 1,
         text: text,
         isCompleted: false,
         dueDate: dueDate
       }];
-         setTasks(addedTaskList);   
+         setTasks(addedTaskList);
+           
   };
 
     const removeTask = index => {
     const removedTaskList = [...tasks];
     removedTaskList.splice(index, 1);
-
     setTasks(removedTaskList);
 }
 
+
+    const editTask = (id, newText, newDate) => {
+      const editedTasks = tasks.map(task => {
+        if (id === task.id) {
+          return {...task, text: newText, dueDate: newDate}
+        } return task;
+      });
+      setTasks(editedTasks);
+    }
+/*
+const editTask = (index, newText) => {
+  const editedTasks = [...tasks];
+  editedTasks[index].text = newText;
+  setTasks(editedTasks);
+}
+*/
     const toggleTask = index => {
         const toggledTasks = [...tasks];
         toggledTasks[index].isCompleted = !toggledTasks[index].isCompleted;
         setTasks(toggledTasks);
     }
-
+    let taskWord;
+    tasks.length === 1 ? taskWord = 'task' : taskWord = 'tasks';
+  
     return (
         <div className="todo-list">
-            <h2>You have <span className={tasks.length > 5 ? "task-number-high" : "task-number-low"}>{tasks.length}</span>  tasks on your list!</h2>
-      {tasks.map((task, index) => (
-        <div className="todo">
-          <span onClick={() => toggleTask(index)} className={task.isCompleted ? "todo-text todo-completed" : "todo-text"}>
-          {task.text}
-          </span>
-          <span className="due-date">{task.dueDate}</span>
-          <button onClick={() => removeTask(index)}><FontAwesomeIcon icon={faTrash}/></button>
+            <h2>You have <span className={tasks.length > 5 ? "task-number-high" : "task-number-low"}>{tasks.length}</span> {taskWord} on your list!</h2>
+            <Task toggleTask={toggleTask}  editTask={editTask} tasks={tasks} removeTask={removeTask}/>
+            <AddTaskForm addTask={addTask}/>
+            <DueToday tasks={tasks}/>
         </div>
-      ))}
-      <AddTaskForm addTask={addTask}/>
-      </div>
     );
   }
   

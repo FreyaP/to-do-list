@@ -12,7 +12,7 @@
   margin: 6px;
   border-radius: 3px;
   display: grid;
-  grid-template-columns: 3fr 2fr 1fr;
+  grid-template-columns: 4fr 3fr min-content min-content;
   align-items: center;
   justify-items: start;
   color: #000;
