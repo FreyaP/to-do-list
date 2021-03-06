@@ -9,7 +9,7 @@ export default function DueToday({ tasks }) {
 
   let result = dueToday(tasks);
 
-const alertTaskDueToday = () => alert(`You have ${result.length} tasks due today! 💪`)
+//const alertTaskDueToday = () => alert(`You have ${result.length} tasks due today! 💪`)
 //alertTaskDueToday();
 
 
