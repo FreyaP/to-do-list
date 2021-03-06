@@ -21,9 +21,11 @@ const handleSubmit = (e) => {
     setNewText("");
     setEditing(false);
 }
-const handleEdit = (id) => {
+const handleEdit = (id, text, dueDate) => {
 setTaskId(id);
 setEditing(true);
+setNewText(text);
+setNewDate(dueDate);
 }
 const editing = (
     <form className='editing' onSubmit={handleSubmit}>
@@ -41,7 +43,7 @@ const viewing = (
     {task.text}
     </span>
     <span className="due-date">{task.dueDate}</span>
-    <button onClick={() => handleEdit(task.id)}><FontAwesomeIcon icon={faEdit}/></button>
+    <button onClick={() => handleEdit(task.id, task.text, task.dueDate)}><FontAwesomeIcon icon={faEdit}/></button>
     <button onClick={() => removeTask(index)}><FontAwesomeIcon icon={faTrash}/></button>
     </div>
 ))}
