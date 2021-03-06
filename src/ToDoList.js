@@ -68,8 +68,8 @@ const editTask = (index, newText) => {
     return (
         <div className="todo-list">
             <h2>You have <span className={tasks.length > 5 ? "task-number-high" : "task-number-low"}>{tasks.length}</span> {taskWord} on your list!</h2>
-            <Task toggleTask={toggleTask}  editTask={editTask} tasks={tasks} removeTask={removeTask}/>
-            <AddTaskForm addTask={addTask}/>
+            <Task toggleTask={toggleTask}  editTask={editTask} tasks={tasks} removeTask={removeTask} addTask={addTask}/>
+            
             <DueToday tasks={tasks}/>
         </div>
     );

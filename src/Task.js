@@ -3,8 +3,9 @@ import { faCheck, faEdit, faTrash, faTimes } from '@fortawesome/free-solid-svg-i
 import { useState} from 'react';
 import './Task.css';
 import FormatDate from './FormatDate';
+import AddTaskForm from './AddTaskForm';
 
-export default function Task({ tasks , toggleTask, editTask, removeTask }) {
+export default function Task({ tasks , toggleTask, editTask, removeTask, addTask }) {
 const [isEditing, setEditing] = useState(false);
 const [newText, setNewText] = useState('');
 const [taskId, setTaskId] = useState('');
@@ -44,6 +45,7 @@ const viewing = (
     <button onClick={() => removeTask(index)}><FontAwesomeIcon icon={faTrash}/></button>
     </div>
 ))}
+<AddTaskForm addTask={addTask}/>
 </div>
 )
 
