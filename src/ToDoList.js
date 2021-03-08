@@ -50,13 +50,7 @@ export default function ToDoList() {
       });
       setTasks(editedTasks);
     }
-/*
-const editTask = (index, newText) => {
-  const editedTasks = [...tasks];
-  editedTasks[index].text = newText;
-  setTasks(editedTasks);
-}
-*/
+
     const toggleTask = index => {
         const toggledTasks = [...tasks];
         toggledTasks[index].isCompleted = !toggledTasks[index].isCompleted;
@@ -69,7 +63,6 @@ const editTask = (index, newText) => {
         <div className="todo-list">
             <h2>You have <span className={tasks.length > 5 ? "task-number-high" : "task-number-low"}>{tasks.length}</span> {taskWord} on your list!</h2>
             <Task toggleTask={toggleTask}  editTask={editTask} tasks={tasks} removeTask={removeTask} addTask={addTask}/>
-            
             <DueToday tasks={tasks}/>
         </div>
     );

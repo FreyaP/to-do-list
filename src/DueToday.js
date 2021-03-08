@@ -1,8 +1,8 @@
 import FormatDate from './FormatDate';
 import './DueToday.css';
+
 export default function DueToday({ tasks }) {
     
-
     const dueToday = tasks => {
     return tasks.filter(task => task.dueDate === FormatDate());
   }
